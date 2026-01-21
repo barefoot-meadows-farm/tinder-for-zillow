@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgia Statewide MLS - Agent Portal</title>
+    <link rel="stylesheet" href="agent-portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Screen 1: Landing Page -->
+    <div id="landing-screen" class="screen active">
+        <nav class="landing-nav">
+            <div class="nav-logo">
+                <span class="logo-icon">🏠</span>
+                <span class="logo-text">Georgia<span class="accent">MLS</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <button class="btn-secondary" onclick="showScreen('login-screen')">Log In</button>
+                <button class="btn-primary" onclick="showScreen('signup-screen')">Get Started</button>
+            </div>
+        </nav>
+
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Now accepting Georgia agents</div>
+                <h1>One MLS. One Price.<br><span class="accent">Entire State.</span></h1>
+                <p class="hero-subtitle">Stop paying into 6 different MLS regions. Get statewide access for one flat quarterly fee. No per-transaction fees. Ever.</p>
+
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large" onclick="showScreen('signup-screen')">
+                        Join for $100/quarter
+                    </button>
+                    <span class="hero-note">Cancel anytime • No contracts</span>
+                </div>
+
+                <div class="hero-comparison">
+                    <div class="comparison-item bad">
+                        <span class="comparison-label">Traditional MLS</span>
+                        <span class="comparison-value">$200-600 <small>per closing</small></span>
+                        <span class="comparison-annual">~$8,000/year (20 closings)</span>
+                    </div>
+                    <div class="comparison-vs">vs</div>
+                    <div class="comparison-item good">
+                        <span class="comparison-label">GeorgiaMLS</span>
+                        <span class="comparison-value">$100 <small>per quarter</small></span>
+                        <span class="comparison-annual">$400/year flat</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-mockup">
+                    <div class="mockup-header">
+                        <span class="mockup-dot"></span>
+                        <span class="mockup-dot"></span>
+                        <span class="mockup-dot"></span>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="mockup-map"></div>
+                        <div class="mockup-stats">
+                            <div class="mockup-stat">
+                                <span>159</span>
+                                <small>Counties</small>
+                            </div>
+                            <div class="mockup-stat">
+                                <span>45K+</span>
+                                <small>Listings</small>
+                            </div>
+                            <div class="mockup-stat">
+                                <span>1</span>
+                                <small>Login</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Everything you need. Nothing you don't.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🗺️</span>
+                    <h3>Statewide Coverage</h3>
+                    <p>Access listings across all 159 Georgia counties. Atlanta, Savannah, Augusta, Columbus - one login for everything.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💰</span>
+                    <h3>Flat-Fee Pricing</h3>
+                    <p>$100/quarter. That's it. No per-transaction fees, no hidden costs, no surprises at closing.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>FlexMLS Powered</h3>
+                    <p>The same professional MLS software you already know. Full listing management, CMAs, and reporting.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>SwipeHome Consumer App</h3>
+                    <p>Your listings appear on SwipeHome - where modern buyers actually want to browse homes.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">✅</span>
+                    <h3>Easy Verification</h3>
+                    <p>Enter your Georgia license number, we verify with GREC automatically. Active in minutes.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🤝</span>
+                    <h3>Direct Buyer Leads</h3>
+                    <p>When buyers tap "Contact Agent" on SwipeHome, it goes straight to you. No referral fees.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing" id="pricing">
+            <h2>Simple, transparent pricing</h2>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Quarterly</h3>
+                        <div class="pricing-amount">
+                            <span class="price">$100</span>
+                            <span class="period">/quarter</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Full statewide MLS access</li>
+                        <li>✓ Unlimited listings</li>
+                        <li>✓ FlexMLS professional tools</li>
+                        <li>✓ SwipeHome listing syndication</li>
+                        <li>✓ Direct buyer leads</li>
+                        <li>✓ Cancel anytime</li>
+                    </ul>
+                    <button class="btn-primary" onclick="showScreen('signup-screen')">Get Started</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Save $50/year</div>
+                    <div class="pricing-header">
+                        <h3>Annual</h3>
+                        <div class="pricing-amount">
+                            <span class="price">$350</span>
+                            <span class="period">/year</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Everything in Quarterly</li>
+                        <li>✓ 2 weeks free</li>
+                        <li>✓ Price locked for 12 months</li>
+                        <li>✓ Priority support</li>
+                        <li>✓ Early access to new features</li>
+                        <li>✓ Cancel anytime (prorated refund)</li>
+                    </ul>
+                    <button class="btn-primary" onclick="showScreen('signup-screen')">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq" id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How does license verification work?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Enter your Georgia Real Estate Commission (GREC) license number during signup. We verify it automatically against the state database. Most verifications complete in under 5 minutes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I use this alongside my current MLS?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Many agents maintain their local MLS membership while using GeorgiaMLS for statewide reach. You can input listings in both systems.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What is SwipeHome?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SwipeHome is our consumer-facing app where buyers browse homes with a modern, swipe-based interface. All GeorgiaMLS listings automatically appear on SwipeHome, giving you exposure to engaged buyers.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Are there any per-transaction fees?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. Never. Your quarterly or annual fee covers everything. Close 5 deals or 50 deals - the price is the same.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to simplify your MLS?</h2>
+            <p>Join hundreds of Georgia agents who switched to flat-fee statewide access.</p>
+            <button class="btn-primary btn-large" onclick="showScreen('signup-screen')">Get Started Now</button>
+        </section>
+
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon">🏠</span>
+                    <span class="logo-text">Georgia<span class="accent">MLS</span></span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-copy">© 2025 GeorgiaMLS. All rights reserved.</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Screen 2: Login -->
+    <div id="login-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-link" onclick="showScreen('landing-screen')">← Back</button>
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="logo-icon">🏠</span>
+                    <h1>Welcome back</h1>
+                    <p>Log in to access your MLS dashboard</p>
+                </div>
+                <form class="auth-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="you@realestate.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-row">
+                        <label class="checkbox-label">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Log In</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="showScreen('signup-screen')">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 3: Signup Step 1 - Account Info -->
+    <div id="signup-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-link" onclick="showScreen('landing-screen')">← Back</button>
+            <div class="auth-card wide">
+                <div class="signup-progress">
+                    <div class="progress-step active">
+                        <span class="step-num">1</span>
+                        <span class="step-label">Account</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-num">2</span>
+                        <span class="step-label">License</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Payment</span>
+                    </div>
+                </div>
+
+                <div class="auth-header">
+                    <h1>Create your account</h1>
+                    <p>Let's get you set up with statewide MLS access</p>
+                </div>
+
+                <form class="auth-form" onsubmit="goToLicenseStep(event)">
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="Brooks" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Wade" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="brooks@realestate.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="(404) 555-0123" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Brokerage Name</label>
+                        <input type="text" placeholder="Keller Williams Atlanta" required>
+                    </div>
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Continue to License Verification →</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="showScreen('login-screen')">Log in</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Signup Step 2 - License Verification -->
+    <div id="license-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-link" onclick="showScreen('signup-screen')">← Back</button>
+            <div class="auth-card wide">
+                <div class="signup-progress">
+                    <div class="progress-step completed">
+                        <span class="step-num">✓</span>
+                        <span class="step-label">Account</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step active">
+                        <span class="step-num">2</span>
+                        <span class="step-label">License</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Payment</span>
+                    </div>
+                </div>
+
+                <div class="auth-header">
+                    <h1>Verify your license</h1>
+                    <p>We'll verify your Georgia real estate license with GREC</p>
+                </div>
+
+                <form class="auth-form" onsubmit="verifyLicense(event)">
+                    <div class="form-group">
+                        <label>Georgia License Number</label>
+                        <input type="text" id="license-input" placeholder="e.g., 123456" required>
+                        <span class="input-hint">Find this on your GREC license card or at grec.state.ga.us</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>License Type</label>
+                        <select required>
+                            <option value="">Select license type...</option>
+                            <option value="salesperson">Salesperson</option>
+                            <option value="broker">Associate Broker</option>
+                            <option value="qualifying-broker">Qualifying Broker</option>
+                        </select>
+                    </div>
+
+                    <div id="verification-result" class="verification-result" style="display: none;">
+                        <div class="verification-success">
+                            <span class="verification-icon">✓</span>
+                            <div class="verification-details">
+                                <span class="verification-status">License Verified</span>
+                                <span class="verification-name">Brooks Wade</span>
+                                <span class="verification-info">Salesperson • Expires 01/2026</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full" id="verify-btn">Verify License</button>
+                </form>
+
+                <div class="license-help">
+                    <h4>Having trouble?</h4>
+                    <p>Make sure your license is active and in good standing with GREC. If you recently renewed, it may take 24-48 hours to update in the state system.</p>
+                    <a href="#">Contact support →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 5: Signup Step 3 - Payment -->
+    <div id="payment-screen" class="screen">
+        <div class="auth-container">
+            <button class="back-link" onclick="showScreen('license-screen')">← Back</button>
+            <div class="auth-card wide">
+                <div class="signup-progress">
+                    <div class="progress-step completed">
+                        <span class="step-num">✓</span>
+                        <span class="step-label">Account</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step completed">
+                        <span class="step-num">✓</span>
+                        <span class="step-label">License</span>
+                    </div>
+                    <div class="progress-line completed"></div>
+                    <div class="progress-step active">
+                        <span class="step-num">3</span>
+                        <span class="step-label">Payment</span>
+                    </div>
+                </div>
+
+                <div class="auth-header">
+                    <h1>Choose your plan</h1>
+                    <p>Select a billing cycle and enter payment details</p>
+                </div>
+
+                <div class="plan-selector">
+                    <label class="plan-option">
+                        <input type="radio" name="plan" value="quarterly" checked>
+                        <div class="plan-card">
+                            <span class="plan-name">Quarterly</span>
+                            <span class="plan-price">$100<small>/quarter</small></span>
+                        </div>
+                    </label>
+                    <label class="plan-option">
+                        <input type="radio" name="plan" value="annual">
+                        <div class="plan-card">
+                            <span class="plan-badge">Save $50</span>
+                            <span class="plan-name">Annual</span>
+                            <span class="plan-price">$350<small>/year</small></span>
+                        </div>
+                    </label>
+                </div>
+
+                <form class="auth-form" onsubmit="processPayment(event)">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <div class="card-input">
+                            <input type="text" placeholder="4242 4242 4242 4242" required>
+                            <div class="card-icons">
+                                <span>💳</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="form-group">
+                            <label>Expiration</label>
+                            <input type="text" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVC</label>
+                            <input type="text" placeholder="123" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Billing ZIP Code</label>
+                        <input type="text" placeholder="30301" required>
+                    </div>
+
+                    <div class="order-summary">
+                        <h4>Order Summary</h4>
+                        <div class="summary-row">
+                            <span>GeorgiaMLS Quarterly</span>
+                            <span>$100.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total due today</span>
+                            <span>$100.00</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-full">Start Membership →</button>
+
+                    <p class="payment-note">
+                        🔒 Secured by Stripe. Cancel anytime from your dashboard.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 6: Dashboard -->
+    <div id="dashboard-screen" class="screen">
+        <nav class="dashboard-nav">
+            <div class="nav-logo">
+                <span class="logo-icon">🏠</span>
+                <span class="logo-text">Georgia<span class="accent">MLS</span></span>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item active" onclick="showDashboardTab('overview')">Dashboard</a>
+                <a href="#" class="nav-item" onclick="showDashboardTab('listings')">My Listings</a>
+                <a href="#" class="nav-item" onclick="showDashboardTab('leads')">Leads</a>
+                <a href="#" class="nav-item" onclick="showScreen('billing-screen')">Billing</a>
+                <a href="#" class="nav-item" onclick="showScreen('profile-screen')">Profile</a>
+            </div>
+            <div class="nav-user">
+                <span class="user-avatar">BW</span>
+                <span class="user-name">Brooks W.</span>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Welcome back, Brooks!</h1>
+                    <p>Here's what's happening with your listings</p>
+                </div>
+                <a href="#" class="btn-primary" target="_blank">
+                    🚀 Open FlexMLS
+                </a>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-icon">📋</span>
+                    <div class="stat-info">
+                        <span class="stat-value">12</span>
+                        <span class="stat-label">Active Listings</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">👀</span>
+                    <div class="stat-info">
+                        <span class="stat-value">1,847</span>
+                        <span class="stat-label">SwipeHome Views (30d)</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">❤️</span>
+                    <div class="stat-info">
+                        <span class="stat-value">234</span>
+                        <span class="stat-label">Likes on SwipeHome</span>
+                    </div>
+                </div>
+                <div class="stat-card highlight">
+                    <span class="stat-icon">💜</span>
+                    <div class="stat-info">
+                        <span class="stat-value">8</span>
+                        <span class="stat-label">New Buyer Leads</span>
+                    </div>
+                    <span class="stat-badge">+3 today</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Recent Leads from SwipeHome</h3>
+                        <a href="#">View all →</a>
+                    </div>
+                    <div class="leads-list">
+                        <div class="lead-item new">
+                            <div class="lead-avatar">SM</div>
+                            <div class="lead-info">
+                                <span class="lead-name">Sarah Mitchell</span>
+                                <span class="lead-property">Interested in 456 Peachtree St</span>
+                                <span class="lead-message">"I'd like to schedule a tour this weekend"</span>
+                            </div>
+                            <div class="lead-meta">
+                                <span class="lead-time">2 hours ago</span>
+                                <span class="lead-badge">New</span>
+                            </div>
+                        </div>
+                        <div class="lead-item new">
+                            <div class="lead-avatar">JD</div>
+                            <div class="lead-info">
+                                <span class="lead-name">James Davis</span>
+                                <span class="lead-property">Interested in 789 Buckhead Ave</span>
+                                <span class="lead-message">"Is this still available?"</span>
+                            </div>
+                            <div class="lead-meta">
+                                <span class="lead-time">5 hours ago</span>
+                                <span class="lead-badge">New</span>
+                            </div>
+                        </div>
+                        <div class="lead-item">
+                            <div class="lead-avatar">MR</div>
+                            <div class="lead-info">
+                                <span class="lead-name">Maria Rodriguez</span>
+                                <span class="lead-property">Interested in 123 Midtown Ln</span>
+                                <span class="lead-message">"What's the HOA fee?"</span>
+                            </div>
+                            <div class="lead-meta">
+                                <span class="lead-time">Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h3>Top Performing Listings</h3>
+                        <a href="#">View all →</a>
+                    </div>
+                    <div class="listings-list">
+                        <div class="listing-item">
+                            <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=200')"></div>
+                            <div class="listing-info">
+                                <span class="listing-address">456 Peachtree St NE</span>
+                                <span class="listing-price">$525,000</span>
+                            </div>
+                            <div class="listing-stats">
+                                <span>👀 423</span>
+                                <span>❤️ 67</span>
+                            </div>
+                        </div>
+                        <div class="listing-item">
+                            <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200')"></div>
+                            <div class="listing-info">
+                                <span class="listing-address">789 Buckhead Ave</span>
+                                <span class="listing-price">$875,000</span>
+                            </div>
+                            <div class="listing-stats">
+                                <span>👀 312</span>
+                                <span>❤️ 45</span>
+                            </div>
+                        </div>
+                        <div class="listing-item">
+                            <div class="listing-image" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=200')"></div>
+                            <div class="listing-info">
+                                <span class="listing-address">123 Midtown Lane</span>
+                                <span class="listing-price">$385,000</span>
+                            </div>
+                            <div class="listing-stats">
+                                <span>👀 289</span>
+                                <span>❤️ 38</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <a href="#" class="action-card">
+                        <span class="action-icon">➕</span>
+                        <span class="action-label">Add New Listing</span>
+                    </a>
+                    <a href="#" class="action-card">
+                        <span class="action-icon">🔍</span>
+                        <span class="action-label">Search MLS</span>
+                    </a>
+                    <a href="#" class="action-card">
+                        <span class="action-icon">📊</span>
+                        <span class="action-label">Run CMA</span>
+                    </a>
+                    <a href="#" class="action-card">
+                        <span class="action-icon">📱</span>
+                        <span class="action-label">View on SwipeHome</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 7: Billing -->
+    <div id="billing-screen" class="screen">
+        <nav class="dashboard-nav">
+            <div class="nav-logo">
+                <span class="logo-icon">🏠</span>
+                <span class="logo-text">Georgia<span class="accent">MLS</span></span>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item" onclick="showScreen('dashboard-screen')">Dashboard</a>
+                <a href="#" class="nav-item">My Listings</a>
+                <a href="#" class="nav-item">Leads</a>
+                <a href="#" class="nav-item active">Billing</a>
+                <a href="#" class="nav-item" onclick="showScreen('profile-screen')">Profile</a>
+            </div>
+            <div class="nav-user">
+                <span class="user-avatar">BW</span>
+                <span class="user-name">Brooks W.</span>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Billing & Subscription</h1>
+                    <p>Manage your plan and payment methods</p>
+                </div>
+            </div>
+
+            <div class="billing-grid">
+                <div class="billing-card current-plan">
+                    <h3>Current Plan</h3>
+                    <div class="plan-details">
+                        <span class="plan-name-large">Quarterly</span>
+                        <span class="plan-price-large">$100<small>/quarter</small></span>
+                    </div>
+                    <div class="plan-status">
+                        <span class="status-badge active">Active</span>
+                        <span class="next-billing">Next billing: April 1, 2025</span>
+                    </div>
+                    <div class="plan-actions">
+                        <button class="btn-secondary">Switch to Annual (Save $50)</button>
+                        <button class="btn-text">Cancel subscription</button>
+                    </div>
+                </div>
+
+                <div class="billing-card payment-method">
+                    <h3>Payment Method</h3>
+                    <div class="card-display">
+                        <div class="card-icon">💳</div>
+                        <div class="card-details">
+                            <span class="card-brand">Visa ending in 4242</span>
+                            <span class="card-expiry">Expires 12/2026</span>
+                        </div>
+                        <button class="btn-text">Update</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="billing-card invoices">
+                <h3>Billing History</h3>
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jan 1, 2025</td>
+                            <td>Quarterly subscription</td>
+                            <td>$100.00</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td><a href="#">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Oct 1, 2024</td>
+                            <td>Quarterly subscription</td>
+                            <td>$100.00</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td><a href="#">Download</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jul 1, 2024</td>
+                            <td>Quarterly subscription</td>
+                            <td>$100.00</td>
+                            <td><span class="status-badge paid">Paid</span></td>
+                            <td><a href="#">Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="savings-callout">
+                <div class="savings-content">
+                    <span class="savings-icon">🎉</span>
+                    <div class="savings-text">
+                        <h4>You've saved $7,600 this year!</h4>
+                        <p>Compared to per-transaction MLS fees (based on your 20 closings)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 8: Profile Settings -->
+    <div id="profile-screen" class="screen">
+        <nav class="dashboard-nav">
+            <div class="nav-logo">
+                <span class="logo-icon">🏠</span>
+                <span class="logo-text">Georgia<span class="accent">MLS</span></span>
+            </div>
+            <div class="nav-items">
+                <a href="#" class="nav-item" onclick="showScreen('dashboard-screen')">Dashboard</a>
+                <a href="#" class="nav-item">My Listings</a>
+                <a href="#" class="nav-item">Leads</a>
+                <a href="#" class="nav-item" onclick="showScreen('billing-screen')">Billing</a>
+                <a href="#" class="nav-item active">Profile</a>
+            </div>
+            <div class="nav-user">
+                <span class="user-avatar">BW</span>
+                <span class="user-name">Brooks W.</span>
+            </div>
+        </nav>
+
+        <div class="dashboard-content">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Profile Settings</h1>
+                    <p>Manage your agent profile and SwipeHome presence</p>
+                </div>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <h3>Public Profile</h3>
+                    <p class="card-description">This information appears when buyers contact you through SwipeHome</p>
+
+                    <div class="profile-photo-section">
+                        <div class="profile-photo">
+                            <span>BW</span>
+                        </div>
+                        <button class="btn-secondary">Upload Photo</button>
+                    </div>
+
+                    <form class="profile-form">
+                        <div class="form-row-2">
+                            <div class="form-group">
+                                <label>First Name</label>
+                                <input type="text" value="Brooks">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" value="Wade">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Brokerage</label>
+                            <input type="text" value="Keller Williams Atlanta">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone (displayed to buyers)</label>
+                            <input type="tel" value="(404) 555-0123">
+                        </div>
+                        <div class="form-group">
+                            <label>Email (displayed to buyers)</label>
+                            <input type="email" value="brooks@kwatlanta.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Bio</label>
+                            <textarea rows="4" placeholder="Tell buyers about yourself...">Atlanta native specializing in residential real estate across the metro area. 10+ years of experience helping families find their perfect home.</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Areas Served</label>
+                            <input type="text" value="Atlanta, Buckhead, Midtown, Decatur, Sandy Springs">
+                        </div>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </form>
+                </div>
+
+                <div class="profile-sidebar">
+                    <div class="profile-card">
+                        <h3>License Information</h3>
+                        <div class="license-info">
+                            <div class="license-row">
+                                <span class="license-label">License #</span>
+                                <span class="license-value">GA-123456</span>
+                            </div>
+                            <div class="license-row">
+                                <span class="license-label">Type</span>
+                                <span class="license-value">Salesperson</span>
+                            </div>
+                            <div class="license-row">
+                                <span class="license-label">Status</span>
+                                <span class="license-value"><span class="status-badge active">Active</span></span>
+                            </div>
+                            <div class="license-row">
+                                <span class="license-label">Expires</span>
+                                <span class="license-value">January 31, 2026</span>
+                            </div>
+                        </div>
+                        <p class="license-note">License verified with GREC on Jan 15, 2025</p>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3>Account Security</h3>
+                        <button class="btn-secondary btn-full">Change Password</button>
+                        <button class="btn-secondary btn-full">Enable Two-Factor Auth</button>
+                    </div>
+
+                    <div class="profile-card danger-zone">
+                        <h3>Danger Zone</h3>
+                        <button class="btn-danger">Delete Account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">🎉</div>
+            <h2>Welcome to GeorgiaMLS!</h2>
+            <p>Your account is active and ready to go. You now have full statewide MLS access.</p>
+            <div class="success-next">
+                <h4>What's next?</h4>
+                <ul>
+                    <li>✓ Access FlexMLS to manage listings</li>
+                    <li>✓ Your listings auto-syndicate to SwipeHome</li>
+                    <li>✓ Receive direct leads from buyers</li>
+                </ul>
+            </div>
+            <button class="btn-primary btn-full" onclick="showScreen('dashboard-screen'); closeSuccessModal();">
+                Go to Dashboard →
+            </button>
+        </div>
+    </div>
+
+    <script src="agent-portal.js"></script>
+</body>
+</html>
