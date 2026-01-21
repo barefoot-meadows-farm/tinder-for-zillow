@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwipeHome - Tinder for Houses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Screen 1: Welcome/Filter Screen -->
+    <div id="filter-screen" class="screen active">
+        <div class="filter-container">
+            <div class="logo">
+                <span class="logo-icon">🏠</span>
+                <h1>SwipeHome</h1>
+                <p class="tagline">Find your dream home, one swipe at a time</p>
+            </div>
+
+            <div class="filter-form">
+                <div class="form-group">
+                    <label>Where do you want to live?</label>
+                    <select id="city-select">
+                        <option value="">Select a city...</option>
+                        <option value="austin">Austin, TX</option>
+                        <option value="denver">Denver, CO</option>
+                        <option value="seattle">Seattle, WA</option>
+                        <option value="portland">Portland, OR</option>
+                        <option value="nashville">Nashville, TN</option>
+                        <option value="miami">Miami, FL</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Price Range</label>
+                    <div class="price-range">
+                        <input type="text" id="min-price" placeholder="Min" value="$200,000">
+                        <span class="separator">to</span>
+                        <input type="text" id="max-price" placeholder="Max" value="$500,000">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Bedrooms</label>
+                    <div class="pill-group">
+                        <button class="pill">Any</button>
+                        <button class="pill">1+</button>
+                        <button class="pill active">2+</button>
+                        <button class="pill">3+</button>
+                        <button class="pill">4+</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Home Type</label>
+                    <div class="pill-group">
+                        <button class="pill active">House</button>
+                        <button class="pill">Condo</button>
+                        <button class="pill">Townhouse</button>
+                        <button class="pill">Multi-family</button>
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="showSwipeScreen()">
+                    Start Swiping 🔥
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 2: Swipe Interface -->
+    <div id="swipe-screen" class="screen">
+        <header class="app-header">
+            <button class="icon-btn" onclick="showFilterScreen()">⚙️</button>
+            <div class="header-title">
+                <span class="logo-small">🏠</span>
+                <span>SwipeHome</span>
+            </div>
+            <button class="icon-btn" onclick="showLikesScreen()">❤️ <span class="badge">3</span></button>
+        </header>
+
+        <div class="location-bar">
+            <span>📍 Austin, TX</span>
+            <span class="divider">|</span>
+            <span>$200K - $500K</span>
+        </div>
+
+        <div class="cards-container">
+            <!-- Card Stack -->
+            <div class="card card-3">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800')"></div>
+            </div>
+            <div class="card card-2">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800')"></div>
+            </div>
+            <div class="card card-1 active-card" id="active-card">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800')">
+                    <div class="swipe-indicator like-indicator">LIKE</div>
+                    <div class="swipe-indicator nope-indicator">NOPE</div>
+                    <div class="card-gradient"></div>
+                    <div class="card-content">
+                        <div class="price-tag">$425,000</div>
+                        <h2 class="address">1234 Oak Valley Drive</h2>
+                        <p class="neighborhood">Mueller • Austin, TX</p>
+                        <div class="house-stats">
+                            <span>🛏️ 3 bed</span>
+                            <span>🛁 2 bath</span>
+                            <span>📐 1,850 sqft</span>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">New Listing</span>
+                            <span class="tag">Open House Sat</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="expand-btn" onclick="showDetailScreen()">
+                    <span>View Details & Comments</span>
+                    <span>💬 12</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="action-btn dislike" onclick="swipeLeft()">
+                <span>👎</span>
+            </button>
+            <button class="action-btn rewind">
+                <span>↩️</span>
+            </button>
+            <button class="action-btn super-like" onclick="superLike()">
+                <span>⭐</span>
+            </button>
+            <button class="action-btn contact" onclick="contactAgent()">
+                <span>💜</span>
+            </button>
+            <button class="action-btn like" onclick="swipeRight()">
+                <span>👍</span>
+            </button>
+        </div>
+
+        <p class="swipe-hint">← Swipe left to pass • Swipe right to like →</p>
+    </div>
+
+    <!-- Screen 3: House Detail with Comments -->
+    <div id="detail-screen" class="screen">
+        <header class="detail-header">
+            <button class="back-btn" onclick="showSwipeScreen()">← Back</button>
+            <button class="share-btn">📤 Share</button>
+        </header>
+
+        <div class="detail-content">
+            <div class="detail-gallery">
+                <div class="main-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800')"></div>
+                <div class="thumbnail-strip">
+                    <div class="thumb active" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=200')"></div>
+                    <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=200')"></div>
+                    <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=200')"></div>
+                    <div class="thumb" style="background-image: url('https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=200')"></div>
+                    <div class="thumb more">+8</div>
+                </div>
+            </div>
+
+            <div class="detail-info">
+                <div class="detail-price-row">
+                    <h1 class="detail-price">$425,000</h1>
+                    <div class="detail-actions">
+                        <button class="detail-action-btn">❤️</button>
+                        <button class="detail-action-btn primary" onclick="contactAgent()">💜 Contact Agent</button>
+                    </div>
+                </div>
+
+                <h2 class="detail-address">1234 Oak Valley Drive</h2>
+                <p class="detail-location">Mueller, Austin, TX 78723</p>
+
+                <div class="detail-stats">
+                    <div class="stat">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Beds</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">2</span>
+                        <span class="stat-label">Baths</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">1,850</span>
+                        <span class="stat-label">Sq Ft</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">2019</span>
+                        <span class="stat-label">Built</span>
+                    </div>
+                </div>
+
+                <div class="detail-section">
+                    <h3>About This Home</h3>
+                    <p>Stunning modern farmhouse in the heart of Mueller! This 3-bedroom beauty features an open floor plan with soaring ceilings, chef's kitchen with quartz counters, and a private backyard oasis. Walking distance to parks, shops, and the famous Thinkery children's museum.</p>
+                </div>
+
+                <div class="detail-section">
+                    <h3>Key Features</h3>
+                    <div class="features-grid">
+                        <span class="feature">✓ Central A/C</span>
+                        <span class="feature">✓ Hardwood Floors</span>
+                        <span class="feature">✓ 2-Car Garage</span>
+                        <span class="feature">✓ Smart Home</span>
+                        <span class="feature">✓ Energy Efficient</span>
+                        <span class="feature">✓ Fenced Yard</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3>💬 Community Discussion <span class="comment-count">(12)</span></h3>
+
+                <div class="comments-list">
+                    <div class="comment">
+                        <div class="comment-avatar">JM</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <span class="comment-author">Jessica M.</span>
+                                <span class="comment-time">2 hours ago</span>
+                            </div>
+                            <p class="comment-text">I toured this house last week! The backyard is even better in person. Kitchen is gorgeous but the master closet is tiny. 🤷‍♀️</p>
+                            <div class="comment-actions">
+                                <button>👍 24</button>
+                                <button>💬 Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-avatar">DK</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <span class="comment-author">David K.</span>
+                                <span class="comment-time">5 hours ago</span>
+                            </div>
+                            <p class="comment-text">Great neighborhood! My friend lives on this street. Super quiet, great for families. The Mueller farmers market is 🔥</p>
+                            <div class="comment-actions">
+                                <button>👍 18</button>
+                                <button>💬 Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment">
+                        <div class="comment-avatar">AT</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <span class="comment-author">Austin_Realtor_Tom</span>
+                                <span class="comment-time verified">Verified Agent • 1 day ago</span>
+                            </div>
+                            <p class="comment-text">This one won't last long! Mueller homes in this price range typically get multiple offers within 48 hours. Happy to answer any questions about the area!</p>
+                            <div class="comment-actions">
+                                <button>👍 8</button>
+                                <button>💬 Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comment reply">
+                        <div class="comment-avatar">SL</div>
+                        <div class="comment-body">
+                            <div class="comment-header">
+                                <span class="comment-author">Sarah L.</span>
+                                <span class="comment-time">18 hours ago</span>
+                            </div>
+                            <p class="comment-text">@Austin_Realtor_Tom What's the HOA fee here? Couldn't find it in the listing.</p>
+                            <div class="comment-actions">
+                                <button>👍 5</button>
+                                <button>💬 Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-comment">
+                    <input type="text" placeholder="Add a comment or ask a question...">
+                    <button>Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Liked Houses -->
+    <div id="likes-screen" class="screen">
+        <header class="app-header">
+            <button class="icon-btn" onclick="showSwipeScreen()">←</button>
+            <div class="header-title">
+                <span>Your Liked Homes</span>
+            </div>
+            <button class="icon-btn">🗂️</button>
+        </header>
+
+        <div class="likes-tabs">
+            <button class="tab active">❤️ Liked (3)</button>
+            <button class="tab">💜 Contacted (1)</button>
+            <button class="tab">⭐ Super (2)</button>
+        </div>
+
+        <div class="likes-list">
+            <div class="liked-card">
+                <div class="liked-image" style="background-image: url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400')"></div>
+                <div class="liked-info">
+                    <span class="liked-price">$389,000</span>
+                    <span class="liked-address">567 Maple Street</span>
+                    <span class="liked-details">2 bed • 2 bath • 1,200 sqft</span>
+                    <span class="liked-status">💜 Agent contacted</span>
+                </div>
+                <button class="liked-action">💬</button>
+            </div>
+
+            <div class="liked-card">
+                <div class="liked-image" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400')"></div>
+                <div class="liked-info">
+                    <span class="liked-price">$450,000</span>
+                    <span class="liked-address">892 Cedar Lane</span>
+                    <span class="liked-details">4 bed • 3 bath • 2,400 sqft</span>
+                    <span class="liked-match">⭐ Super liked!</span>
+                </div>
+                <button class="liked-action">💜</button>
+            </div>
+
+            <div class="liked-card">
+                <div class="liked-image" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400')"></div>
+                <div class="liked-info">
+                    <span class="liked-price">$475,000</span>
+                    <span class="liked-address">234 Birch Avenue</span>
+                    <span class="liked-details">3 bed • 2.5 bath • 1,950 sqft</span>
+                    <span class="liked-new">New price drop! ↓$15K</span>
+                </div>
+                <button class="liked-action">💜</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Agent Modal -->
+    <div id="contact-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-header">
+                <span class="modal-icon">💜</span>
+                <h2>Contact Agent</h2>
+                <p>Send a message about 1234 Oak Valley Drive</p>
+            </div>
+            <div class="agent-card">
+                <div class="agent-photo">👤</div>
+                <div class="agent-info">
+                    <span class="agent-name">Tom Richards</span>
+                    <span class="agent-company">Austin Premier Realty</span>
+                    <span class="agent-rating">⭐ 4.9 (127 reviews)</span>
+                </div>
+            </div>
+            <div class="quick-messages">
+                <p>Quick message:</p>
+                <button class="quick-msg">I'd like to schedule a tour</button>
+                <button class="quick-msg">Is this still available?</button>
+                <button class="quick-msg">What's the neighborhood like?</button>
+            </div>
+            <textarea placeholder="Or write your own message..."></textarea>
+            <button class="btn-primary">Send Message 💜</button>
+        </div>
+    </div>
+
+    <!-- Swipe Animation Overlay -->
+    <div id="swipe-overlay" class="swipe-overlay">
+        <div class="swipe-result like-result">
+            <span>❤️</span>
+            <p>Added to Likes!</p>
+        </div>
+        <div class="swipe-result nope-result">
+            <span>👋</span>
+            <p>Maybe next time!</p>
+        </div>
+        <div class="swipe-result super-result">
+            <span>⭐</span>
+            <p>Super Liked!</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
